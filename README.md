@@ -1,172 +1,171 @@
-# Substack Notes Blocker
+# Substack Focus 🎯
 
-A Chrome extension that allows users to disable their Substack notes feed and turn off notification bells with simple toggle switches.
+**Enhanced productivity extension for Substack with selective blocking, usage statistics, and focus metrics**
 
-## Features
+Transform your Substack reading experience with intelligent content filtering, detailed analytics, and productivity insights. Take control of distractions and maximize your reading focus.
 
-- **Block Notes Feed**: Hide the Substack notes feed from your browsing experience
-- **Block Notifications**: Hide the notification bell icon and related notifications
-- **Simple Toggle Interface**: Easy-to-use popup with toggle switches
-- **Real-time Updates**: Changes apply immediately without page refresh (in most cases)
-- **Persistent Settings**: Your preferences are saved and remembered across browser sessions
+## ✨ Key Features
 
-## Installation Instructions
+### 🎯 **Focus Controls**
+- **Block Notes Feed** - Hide the main Notes feed from your dashboard
+- **Block All Notifications** - Hide notification bells and badges everywhere
 
-### Method 1: Load as Unpacked Extension (Recommended for Development/Testing)
+### ⚙️ **Selective Blocking**
+Choose exactly what to hide with granular controls:
+- **Hide Notes Tab** - Remove Notes tab from navigation
+- **Hide Notes in Feed** - Remove Notes from your main content feed
+- **Hide Notes Notifications** - Block only Notes-related notifications
+- **Hide Notes Sidebar** - Remove Notes widgets from sidebars
 
-1. **Download the Extension Files**
-   - Download all files from this repository to a local folder on your computer
-   - Make sure you have all these files:
-     - `manifest.json`
-     - `popup.html`
-     - `popup.js`
-     - `content.js`
-     - `content.css`
-     - `background.js`
-     - `icons/` folder with icon files
+### 📊 **Usage Statistics**
+Track your productivity improvements:
+- **Hidden Items Counter** - See how many distracting elements were blocked today
+- **Time Saved** - Estimated time saved by blocking distractions
+- **Focus Score** - Dynamic score based on your blocking settings and usage
+- **Streak Days** - Track consecutive days of focused reading
 
-2. **Open Chrome Extension Management**
-   - Open Google Chrome
-   - Navigate to `chrome://extensions/` in your address bar
-   - Or go to Chrome Menu → More Tools → Extensions
+### 🚀 **Productivity Metrics**
+Advanced analytics for reading optimization:
+- **Reading Focus** - Measures your content engagement level
+- **Distraction Reduction** - Shows how effectively distractions are minimized
+- **Weekly Average** - Trend analysis of your productivity over time
+- **Progress Visualization** - Beautiful progress bars and charts
 
-3. **Enable Developer Mode**
-   - In the top-right corner of the Extensions page, toggle on "Developer mode"
+## 🛠️ Installation
 
-4. **Load the Extension**
-   - Click "Load unpacked" button that appears after enabling Developer mode
-   - Navigate to and select the folder containing the extension files
-   - Click "Select Folder" (or "Open" on some systems)
+### From Chrome Web Store (Recommended)
+*Coming Soon - Extension under review*
 
-5. **Verify Installation**
-   - You should see "Substack Notes Blocker" appear in your extensions list
-   - The extension icon should appear in your Chrome toolbar
-   - If the icon doesn't appear in the toolbar, click the puzzle piece icon and pin the extension
+### Manual Installation (Developer Mode)
+1. Download or clone this repository
+2. Open Chrome and navigate to `chrome://extensions/`
+3. Enable "Developer mode" in the top right
+4. Click "Load unpacked" and select the extension folder
+5. The Substack Focus icon will appear in your toolbar
 
-### Method 2: Package and Install (For Distribution)
+## 🎮 How to Use
 
-1. **Create Extension Package**
-   - Go to `chrome://extensions/`
-   - Enable Developer mode
-   - Click "Pack extension"
-   - Select the extension folder
-   - Click "Pack Extension"
-   - This creates a `.crx` file
+1. **Click the extension icon** when visiting any Substack site
+2. **Toggle main controls** for broad blocking (Notes Feed, All Notifications)
+3. **Fine-tune with selective blocking** for specific elements
+4. **Monitor your statistics** to see productivity improvements
+5. **Track metrics** to understand your reading patterns
 
-2. **Install the Package**
-   - Drag and drop the `.crx` file onto the Chrome Extensions page
-   - Click "Add Extension" when prompted
+### Quick Start Tips
+- Start with "Block Notes Feed" for immediate distraction reduction
+- Use selective blocking to customize your experience
+- Check statistics daily to see your progress
+- Reset statistics weekly/monthly for fresh tracking
 
-## Usage Instructions
+## 📈 Statistics & Metrics Explained
 
-1. **Navigate to Substack**
-   - Go to any Substack website (e.g., `example.substack.com`)
+### Daily Statistics
+- **Hidden Items**: Number of distracting elements blocked today
+- **Time Saved**: Estimated time saved (2-5 seconds per blocked item)
+- **Focus Score**: Calculated based on active blocking settings
+- **Day Streak**: Consecutive days of using the extension
 
-2. **Open the Extension**
-   - Click the Substack Notes Blocker icon in your Chrome toolbar
-   - If you don't see the icon, click the puzzle piece icon and find it there
+### Productivity Metrics
+- **Reading Focus** (70-98%): Engagement level with meaningful content
+- **Distraction Reduction** (85-98%): Effectiveness of blocking settings
+- **Weekly Average** (0-100%): 4-week rolling average of productivity
 
-3. **Configure Settings**
-   - **Block Notes Feed**: Toggle this on to hide the Substack notes feed
-   - **Block Notifications**: Toggle this on to hide notification bells and badges
+### How Scores Are Calculated
+- **Base scores** start at healthy defaults
+- **Settings weights**: Different blocking options contribute different amounts
+- **Usage bonuses**: Active use increases scores over time
+- **Time factors**: Consistent daily use improves long-term metrics
 
-4. **Apply Changes**
-   - Changes should apply immediately in most cases
-   - If elements don't disappear immediately, refresh the page
-   - Your settings are automatically saved
+## 🎨 Features in Detail
 
-## How It Works
+### Smart Detection
+- **Dynamic selectors** that adapt to Substack UI changes
+- **Comprehensive coverage** of Notes elements across all page types
+- **Performance optimized** with efficient DOM monitoring
 
-The extension uses several techniques to identify and hide Substack elements:
+### Visual Experience
+- **Smooth transitions** when content is hidden/shown
+- **Clean layout** with no leftover gaps or broken designs
+- **Modern UI** with intuitive controls and beautiful statistics
 
-- **Content Scripts**: Automatically injected into Substack pages to modify the DOM
-- **CSS Selectors**: Targets common Substack UI patterns for notes and notifications
-- **Dynamic Detection**: Uses mutation observers to handle dynamically loaded content
-- **Persistent Storage**: Saves your preferences using Chrome's storage API
+### Privacy & Data
+- **Local storage only** - all data stays on your device
+- **No tracking** - extension doesn't collect personal information
+- **Minimal permissions** - only accesses Substack sites
 
-## Troubleshooting
-
-### Extension Not Working
-- Make sure you're on a Substack website (`*.substack.com`)
-- Try refreshing the page after changing settings
-- Check that the extension is enabled in `chrome://extensions/`
-
-### Elements Still Visible
-- Substack may have updated their UI - the extension targets common selectors
-- Try toggling the settings off and on again
-- Refresh the page after making changes
-
-### Extension Icon Missing
-- Click the puzzle piece icon in Chrome toolbar
-- Find "Substack Notes Blocker" and click the pin icon to keep it visible
-
-### Settings Not Saving
-- Make sure Chrome has permission to store data
-- Try disabling and re-enabling the extension
-
-## Technical Details
-
-### Files Structure
-```
-substack-notes-blocker/
-├── manifest.json          # Extension configuration
-├── popup.html            # Extension popup interface
-├── popup.js              # Popup functionality
-├── content.js            # Main content script
-├── content.css           # Additional CSS for hiding elements
-├── background.js         # Background service worker
-└── icons/                # Extension icons
-    ├── icon16.png
-    ├── icon32.png
-    ├── icon48.png
-    └── icon128.png
-```
-
-### Permissions
-- `storage`: To save user preferences
-- `activeTab`: To interact with the current Substack tab
-- `*://*.substack.com/*`: To run on all Substack domains
+## 🔧 Technical Details
 
 ### Browser Compatibility
-- Chrome (Manifest V3)
+- Chrome 88+ (Manifest V3)
 - Chromium-based browsers (Edge, Brave, etc.)
 
-## Privacy
+### Performance
+- **Lightweight** - minimal impact on page load times
+- **Efficient** - uses modern web APIs for optimal performance
+- **Responsive** - works on desktop and mobile Substack views
 
-This extension:
-- ✅ Only runs on Substack websites
-- ✅ Stores settings locally on your device
-- ✅ Does not collect or transmit any personal data
-- ✅ Does not track your browsing activity
-- ✅ Works completely offline
+### Architecture
+- **Content Script**: Handles DOM manipulation and element hiding
+- **Background Service Worker**: Manages statistics and periodic tasks
+- **Popup Interface**: Provides user controls and statistics display
+- **Storage System**: Tracks settings and analytics data
 
-## Development
+## 🤝 Contributing
 
-### Making Changes
-1. Edit the relevant files
-2. Go to `chrome://extensions/`
-3. Click the refresh icon on the extension card
-4. Test your changes on a Substack site
+We welcome contributions! Here's how you can help:
 
-### Adding New Selectors
-If Substack changes their UI and elements aren't being hidden:
-1. Open `content.js`
-2. Add new selectors to the `SELECTORS` object
-3. Reload the extension
+1. **Report bugs** by opening an issue
+2. **Suggest features** with detailed use cases
+3. **Submit pull requests** with improvements
+4. **Share feedback** about your experience
 
-## Contributing
+### Development Setup
+```bash
+git clone <repository-url>
+cd substack-focus
+# Load in Chrome as unpacked extension
+# Make changes and test on Substack sites
+```
 
-Feel free to submit issues or pull requests if you find bugs or want to improve the extension.
+## 📝 Changelog
 
-## License
-
-This project is open source and available under the MIT License.
-
-## Changelog
+### Version 2.0.0 (Current)
+- ✨ Added selective blocking controls
+- 📊 Implemented comprehensive statistics tracking
+- 🚀 Added productivity metrics and analytics
+- 🎨 Redesigned popup with modern UI
+- ⚡ Enhanced performance and reliability
+- 🔧 Improved Substack element detection
 
 ### Version 1.0.0
-- Initial release
-- Block notes feed functionality
-- Block notifications functionality
-- Toggle interface with persistent settings
-- Real-time updates without page refresh
+- 🎯 Basic Notes feed blocking
+- 🔕 Simple notification hiding
+- ⚙️ Basic toggle controls
+
+## 🐛 Known Issues
+
+- Some dynamic content may require page refresh
+- Statistics reset at midnight (by design)
+- Very new Substack UI changes may need selector updates
+
+## 📞 Support
+
+- **Issues**: Open a GitHub issue for bugs or feature requests
+- **Questions**: Check existing issues or start a discussion
+- **Updates**: Watch the repository for new releases
+
+## 📄 License
+
+MIT License - feel free to use, modify, and distribute
+
+## 🙏 Acknowledgments
+
+- Substack team for building an amazing platform
+- Chrome Extensions community for documentation and examples
+- Users who provide feedback and feature suggestions
+
+---
+
+**Made with ❤️ for focused reading**
+
+*Transform your Substack experience today - because every minute of focused reading counts!*

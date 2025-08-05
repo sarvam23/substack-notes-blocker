@@ -1,0 +1,181 @@
+/* Substack Focus - Enhanced CSS for hiding elements */
+
+/* Ensure hidden elements are completely invisible and don't take up space */
+.substack-focus-hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+/* Body class-based hiding for enhanced performance */
+
+/* Main blocking features */
+body.substack-focus-block-notes [href*="/notes"],
+body.substack-focus-block-notes [href*="notes"],
+body.substack-focus-block-notes [class*="notes" i]:not(.substack-focus-popup),
+body.substack-focus-block-notes [data-testid*="notes" i],
+body.substack-focus-block-notes [aria-label*="notes" i] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+body.substack-focus-block-notifications [class*="notification" i],
+body.substack-focus-block-notifications [class*="bell" i],
+body.substack-focus-block-notifications [data-testid*="notification" i],
+body.substack-focus-block-notifications [aria-label*="notification" i] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Selective blocking features */
+body.substack-focus-hide-notes-tab nav a[href*="notes"],
+body.substack-focus-hide-notes-tab [role="navigation"] a[href*="notes"],
+body.substack-focus-hide-notes-tab [data-testid*="notes-tab"],
+body.substack-focus-hide-notes-tab [data-testid*="notes-link"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+body.substack-focus-hide-notes-feed [data-testid*="note-item"],
+body.substack-focus-hide-notes-feed [class*="note-item"],
+body.substack-focus-hide-notes-feed [class*="note-card"],
+body.substack-focus-hide-notes-feed article[class*="note"],
+body.substack-focus-hide-notes-feed article[data-post-type="note"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+body.substack-focus-hide-notes-notifications [data-testid*="notification"][class*="note"],
+body.substack-focus-hide-notes-notifications [class*="notification"][class*="note"],
+body.substack-focus-hide-notes-notifications [aria-label*="note notification" i] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+body.substack-focus-hide-notes-sidebar [class*="sidebar"] [class*="notes"],
+body.substack-focus-hide-notes-sidebar [class*="sidebar"] a[href*="notes"],
+body.substack-focus-hide-notes-sidebar aside [class*="notes"],
+body.substack-focus-hide-notes-sidebar [class*="right-rail"] [class*="notes"] {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Smooth transitions for better UX when elements appear/disappear */
+[class*="notes" i]:not(.substack-focus-hidden),
+[class*="notification" i]:not(.substack-focus-hidden) {
+    transition: opacity 0.3s ease, transform 0.3s ease, height 0.3s ease;
+}
+
+/* Hide empty containers that might remain after blocking content */
+nav:empty,
+[role="navigation"]:empty,
+.navigation:empty,
+[class*="nav" i]:empty {
+    display: none !important;
+}
+
+/* Ensure our extension popup and UI elements are never hidden */
+.substack-focus-popup,
+.substack-focus-popup *,
+.substack-focus-ui,
+.substack-focus-ui * {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    left: auto !important;
+    height: auto !important;
+    width: auto !important;
+}
+
+/* Performance optimizations */
+.substack-focus-hidden * {
+    pointer-events: none !important;
+    user-select: none !important;
+}
+
+/* Hide loading placeholders for blocked content */
+body.substack-focus-block-notes [class*="skeleton"][class*="note"],
+body.substack-focus-block-notes [class*="loading"][class*="note"],
+body.substack-focus-block-notifications [class*="skeleton"][class*="notification"],
+body.substack-focus-block-notifications [class*="loading"][class*="notification"] {
+    display: none !important;
+}
+
+/* Clean up layout gaps where hidden elements were */
+.substack-focus-hidden + .substack-focus-hidden {
+    margin-top: 0 !important;
+}
+
+/* Specific Substack UI patterns */
+/* Hide Notes-related promotional banners */
+body.substack-focus-block-notes [class*="banner"][class*="note"],
+body.substack-focus-block-notes [class*="promo"][class*="note"],
+body.substack-focus-block-notes [data-testid*="notes-banner"] {
+    display: none !important;
+}
+
+/* Hide Notes onboarding tooltips and guides */
+body.substack-focus-block-notes [class*="tooltip"][class*="note"],
+body.substack-focus-block-notes [class*="guide"][class*="note"],
+body.substack-focus-block-notes [data-testid*="notes-onboarding"] {
+    display: none !important;
+}
+
+/* Hide notification badges and counters */
+body.substack-focus-block-notifications .notification-badge,
+body.substack-focus-block-notifications .notification-count,
+body.substack-focus-block-notifications [class*="badge"][class*="notification"],
+body.substack-focus-block-notifications [class*="counter"][class*="notification"] {
+    display: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    /* Mobile-specific hiding patterns */
+    body.substack-focus-hide-notes-tab [class*="mobile-nav"] a[href*="notes"],
+    body.substack-focus-hide-notes-tab [class*="bottom-nav"] a[href*="notes"] {
+        display: none !important;
+    }
+}
+
+/* Dark mode compatibility */
+@media (prefers-color-scheme: dark) {
+    .substack-focus-hidden {
+        background: transparent !important;
+        color: transparent !important;
+    }
+}
+
+/* High contrast mode compatibility */
+@media (prefers-contrast: high) {
+    .substack-focus-hidden {
+        border: none !important;
+        outline: none !important;
+    }
+}
+
+/* Animation for content that gets revealed */
+@keyframes substack-focus-reveal {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply reveal animation to content when settings are disabled */
+body:not(.substack-focus-block-notes) [class*="notes"]:not(.substack-focus-hidden),
+body:not(.substack-focus-block-notifications) [class*="notification"]:not(.substack-focus-hidden) {
+    animation: substack-focus-reveal 0.3s ease-out;
+}
